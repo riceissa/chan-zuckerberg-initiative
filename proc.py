@@ -15,12 +15,14 @@ def main():
             amount = float(row["amount"].replace("$", "").replace(",", ""))
             if re.match(r"\d\d\d\d - \d\d\d\d$", row["period"]):
                 donation_date = row["period"][:4] + "-01-01"
+                grant_period_string = "Grant period: " + row["period"].replace(" - ", "–") + ". "
             else:
                 assert re.match(r"\d\d\d\d$", row["period"])
                 donation_date = row["period"] + "-01-01"
+                grant_period_string = ""
 
             notes = "Program: " + row["program"] + ". "
-            notes += "Grant period: " + row["period"] + ". "
+            notes += grant_period_string
             notes += row["description"]
 
             print(("    " if first else "    ,") + "(" + ",".join([
