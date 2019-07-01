@@ -11,7 +11,7 @@ Relevant issue: https://github.com/vipulnaik/donations/issues/123
 ./scrape.py > data.csv
 
 # Use the CSV to generate the SQL file:
-./proc data.csv > out.sql
+./proc.py data.csv > out.sql
 ```
 
 ## License
